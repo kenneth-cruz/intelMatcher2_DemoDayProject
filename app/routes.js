@@ -173,7 +173,7 @@ app.post('/changeProfilePicture', upload.single('file-to-upload'), (req, res, ne
   // file uploaded is saved to ATOM so it is reaching for that path as a string to use later.
   db.collection('users').findOneAndUpdate({
       _id: uId}, {
-        $set: {profileImg: `${upload}` }
+        $set: {profileImg: `post/${upload}` }
       }, (err, result) => {
     if (err) return console.log(err)
     console.log('saved to database')
