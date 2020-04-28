@@ -1,0 +1,14 @@
+body{
+  padding-top:120px;
+  word-wrap:break-word;
+  background-image: url(new_york_background.jpg);
+}
+img{
+  height: 200px;
+}
+p{
+  font-weight: bold;
+}
+a{
+  color: darkblue;
+}

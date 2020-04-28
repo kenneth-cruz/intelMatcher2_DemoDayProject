@@ -1,0 +1,45 @@
+<%- include('header'); -%>
+
+<section id="postLinksOut">
+  <h2> <img id="newsPaperImage" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/emoji-one/104/newspaper_1f4f0.png" width="30px" height="30px"alt="">
+    My Intellectual Matches
+<img id="newsPaperImage" src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v482batch2-ning-07.png?auto=&bg=transparent&con=3&cs=srgb&dpr=1&fm=png&ixlib=php-3.1.0&mark=rawpixel-watermark.png&markalpha=90&markpad=13&markscale=10&markx=25&q=75&usm=15&vib=3&w=2048&s=9ae28bce515e28973dab9c73775f48f9" width="30px" height="30px"alt="">
+  </h2>
+  <a id="swipingLink" class="btn btn-warning btn-lg" href="/profile">Return to Swiping</a>
+  <a id="myFavTopics" class="btn btn-warning btn-lg" href="/favoritesBoard">Return to favoritesBoard</a>
+</section>
+
+ <br> <br>
+  <ul>
+    <%# Question: why is there a for loop here if the page is only showing 1 image. %>
+
+  <% for(var i=0; i<topics.length; i++) {%>
+    <%# Only showing the people who have chosen that topic (aside from oneself!) %>
+    <% if (user.local.email !== topics[i].email) { %>
+    <li>
+      <section id="listItemContainer" class="listItemContainerPostsBoard">
+        <br>
+        <img src="<%= topics[i].imageSRC%>"> <br>
+          <span id= "topicWrapper"><%= topics[i].topic %></span> <br>
+          <span id="linkWrapper"> <a target="_blank" href="<%= topics[i].link %>"> View Article </a></span> <br>
+          <img id="profilePic" src="<%= topics[i].profileImg %>"> <br>
+          <section id="matchSpecification">
+            <span id = "firstNameSpecifier"> Person You Matched With:</span> <span id="firstNameSpecifierNameOnly"> <%= topics[i].firstName %> </span> <br>
+            <span id = "ageSpecifier"> Age: </span> <span id="firstNameSpecifierNameOnly"> <%= topics[i].age %> </span> <br>
+            <span id = "genderSpecifier"> Gender:</span> <span id="firstNameSpecifierNameOnly">  <%= topics[i].gender %> </span> <br>
+            <span id = "topicSpecifier"> topic: </span> <span id="firstNameSpecifierNameOnly"> <%= topics[i].keyword %></span> <br>
+            <span id = "emailSpecifier"> their email: </span> <span id="firstNameSpecifierNameOnly"> <%= topics[i].email %> </span> <br>
+          </section>
+
+        <section id="postLinksOut">
+          <a id="swipingLink" class="btn btn-warning btn-lg" href="/profileMessage/<%= topics[i].posterId%>">Start Chatting! </a>
+        </section> <br>
+      </section><br>
+       <%# <span><i class="fa fa-heart" aria-hidden="true"></i></span> <br>
+      <span><i class="fa fa-trash" aria-hidden="true"></i></span>  %>
+    <% } %>
+    </li>
+    <% } %>
+  </ul>
+
+<%- include('footer'); -%>

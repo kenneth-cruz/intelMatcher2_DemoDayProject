@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+      <title>IntelMatcher</title>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+      <link rel="stylesheet" href="../style.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+KR|Quicksand&display=swap" rel="stylesheet">
+
+
+  </head>
+  <body>
+          <!-- Notes for Later -->
+          <!-- 	<h3> Welcome to: <%= collectionOne[0]._id %>  's DMs </h3> -->
+          <!-- <%= collectionTwo[0].receiverID %>  -->
+          <!--  <%= collectionOne[0]._id %> -->
+          <!--  <%= present._id %> -->
+          <!--  <%= collectionTwo[0].senderID %> -->
+           <section class="mainSearchSection">
+             <h3 class="peaksInterest"> What would you like to Tell Me? </h3>
+
+            <h3> Welcome to: <span style="color: black;"> <%= collectionOne[0].local.firstName %>  's  </span> DMs  😳</h3>
+            <h3> sender's name: <span style="color: black;"> <%= present.local.firstName %> </span></h3>
+            <h4> Drop me a Message! 😉 </h4>
+
+        <form id="messageForm" action="/messages" method="POST">
+          <input id="senderofMessageBox" type="text" value="<%= present.local.firstName %>" name="name"> <br>
+          <input id="messageBox"type="text" placeholder="message" name="msg"> <br>
+          <button id="messageSubmit" type="submit">Submit</button>
+        </form> <br>
+         <a href="/favoritesBoard"> <button id="messageSubmit" > Back to Matches </button></a>
+</button>
+<br> <br>
+<h2> MESSAGES BETWEEN THE TWO OF YOU: </h2>
+
+<section id="DMContainer">
+  <ul id="ulPopulating">
+  <% for(var i=0; i< collectionTwo.length; i++) {%>
+
+    <li id="liPopulating">
+       <%= present.local.firstName %>: <%= collectionTwo[i].msg %>
+    </li>
+    <% } %>
+  </ul>
+</section>
+
+
+
+
+<%- include('footer'); -%>

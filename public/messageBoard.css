@@ -1,0 +1,57 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  background-color: beige;
+  /* background-image: url("img/drone_beach_background.jpg"); */
+  background-size: 100%;
+  background-position: center;
+}
+img{
+  height: 200px;
+}
+h1{
+  color: black;
+  font-family: 'Source Code Pro', monospace;
+}
+.mainContainer{
+  background-color: none;
+  text-align: center;
+}
+li {
+  list-style: none;
+}
+.mainContainer{
+  /* background-image: url("img/cork-board.png"); */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  height: 80%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5% 10% 10% 10%;
+  list-style: none !important;
+}
+
+/* .mainContainerTop {
+  background-image: url("img/cork-board-top.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1% !important;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+} */
+.page-header{
+  border-bottom: none !important;
+}
+
+#topicChoices{
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}

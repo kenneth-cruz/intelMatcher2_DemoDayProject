@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>IntelMatcher</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="favoritesBoard.css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+KR|Quicksand&display=swap" rel="stylesheet">
+		<link rel="icon" href="heartThunder.png">
+		<noscript><link rel="stylesheet" href="noscript.css" /></noscript>
+	</head>
+	<body>
+
+    <div class="page-header text-center">
+      <h2> <img src="./img/fire.gif" width="30px" height="30px"alt="little Flame GIF">
+        Intel.Matcher
+      <img src="./img/fire.gif" width="30px" height="30px"alt="little Flame GIF">
+      </h2>
+      <h2>Explore your <span style="color: black;">right swiped</span> topics: </h2>
+      <!-- logout link -->
+      <a href="/logout" class="button primary">Logout</a>
+      <a href="/profile" class="button primary" > Swipe More</a> <br> <br>
+      <h4> <span style="color: black;">Click</span> on the images to see who else shares your interest </h4>
+    </div>
+<section class = "mainContainerFavoritesBoard">
+
+        <ul>
+        <% for(var i=0; i<topics.length; i++) {%>
+          <% if (user._id == topics[i].posterId.toString()) { %>
+            <li id="listItemContainerFavoritesBoard">
+              <h3><%= topics[i].topic %></h3> <br>
+              <a target="_blank" id="urlDisplayLink" href=<%= topics[i].link %>> <%= topics[i].link %> </a>  <br>
+              <a href="/post/<%= topics[i]._id%>">
+                <%# this is the source to display that image %>
+                <img src="<%= topics[i].imageSRC%>" width="50%" height="50%">
+              </a> <br>
+            </li>
+            <br>
+          <% } %>
+          <% } %>
+
+        </ul>
+</section>
+
+
+    <script src="https://kit.fontawesome.com/077191d827.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>IntelMatcher</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="profile.css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat|Noto+Sans+KR|Quicksand&display=swap" rel="stylesheet">
+		<link rel="icon" href="heartThunder.png">
+		<noscript><link rel="stylesheet" href="noscript.css" /></noscript>
+	</head>
+	<body>
+
+
+
+
+          <!-- LOCAL INFORMATION -->
+
+          <%# Right Half of the Page with your Pics %>
+          <section class="mainSearchSection">
+            <h3 class="peaksInterest"> What peaks my interests is ... </h3>
+						<span> example: "china"</span>
+            <ul>
+              <%# looping through the length of the collection called 'posts' %>
+            <% for(var i=0; i<posts.length; i++) {%>
+              <li>
+                <%# this is an anchor tag referencing the post page with the specific hashed ID for that image %>
+                <%# OUR LINK TO THE POST.EJS file! %>
+
+                <a href="/post/<%= posts[i]._id%>">
+                  <%# this is the source to display that image %>
+                  <img src="<%= posts[i].imgPath%>">
+                </a>
+                <%# this will post the caption I gave to the picture and the starting # of likes (s) %>
+                <span><%= posts[i].caption %></span>
+                <span><%= posts[i].likes %></span>
+                <span><i class="fa fa-heart" aria-hidden="true"></i></span>
+                <%# I added the fontAwesome script to get this to show in footer.ejs line #4 %>
+                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+              </li>
+            <% } %>
+            </ul>
+          <!-- IMAGE UPLOAD -->
+          <!-- <h2>Add a post</h2> -->
+
+           <input type="text" name="topic" value="" id="topicChoice" placeholder="enter a topic or country here:">
+           <button class="button primary headlineSearcher" id = "headlineSearcher" type="button" name="button" id="activate" onclick="javascript:hello()"> Let's find some headlines! </button>
+           <br>
+
+           <h3 id="titleDisplay"></h3>
+           <h3> <a target="_blank" id="urlDisplayLink" href=""></a> </h3>
+           <img id= "imageDisplay"src="" alt="">
+           <button  id="swipeLeft" type="submit" name="button"> <img  src="./img/swipe_left.png" alt=""> </button>
+					 <span id="spanSpacer"> hihihi </span>
+					 <button  id="swipeRight" type="submit" name="button"> <img src="./img/swipe_right.png" alt="">  </button>
+         </section>
+
+
+         <section class="roaming">
+          <div class="page-header text-center">
+              <h1> find out who swiped right ! </h1>
+              <%# pressing logout will run the GET request of Loging Out %>
+              <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+							<span id="spanSpacer"> hihihi </span>
+              <a href="/favoritesBoard" class="btn btn-default btn-sm" > Favorites Board</a>
+          </div>
+        </section>
+				<section class="roaming">
+					<div class="page-header text-center">
+						<section class="profileContainer"> <br>
+					<img src="<%= user.profileImg %>" width="200px;" height="200px"alt=""> <br> <h3> Set Your Profile Image </h3> <br>
+					<form action="/changeProfilePicture" enctype="multipart/form-data" method="POST">
+	                         <input type="file" name="file-to-upload">
+	                         <input id="uploadButton" type="submit" value="Upload">
+	                       </form>
+						</section>
+					</div>
+				</section> <br>
+
+<%- include('footer'); -%>
