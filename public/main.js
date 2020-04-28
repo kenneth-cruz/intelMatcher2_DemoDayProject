@@ -72,7 +72,7 @@ topicChoice.addEventListener('keyup', function(event) {
 });
   document.getElementById('headlineSearcher').addEventListener('click', function hello(){
 
-      fetch(`https://newsapi.org/v2/top-headlines?language=en&q=${topicChoice.value}&apiKey=10d4e4ba0b9a4c95b9ab5d81a4b1947d`)
+      fetch(`https://newsapi.org/v2/top-headlines?language=en&q=${topicChoice.value.toLowerCase()}&apiKey=10d4e4ba0b9a4c95b9ab5d81a4b1947d`)
       .then(res => res.json())
       .then(headlines => {
         // let randomNumber = Math.floor(Math.random()*2)
@@ -87,7 +87,7 @@ topicChoice.addEventListener('keyup', function(event) {
 
       })
 
-      fetch(`https://pixabay.com/api/?key=16231649-cda0457639d81c5ea1819be58&q=${topicChoice.value}&image_type=photo`)
+      fetch(`https://pixabay.com/api/?key=16231649-cda0457639d81c5ea1819be58&q=${topicChoice.value.toLowerCase()}&image_type=photo`)
             .then(res => res.json())
             .then(media => {
               // let randomNumber = Math.floor(Math.random()*2)
