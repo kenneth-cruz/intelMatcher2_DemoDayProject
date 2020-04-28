@@ -116,7 +116,7 @@ document.getElementById('swipeRight').addEventListener('click', function(){
       'topic': topic,
       'link': link,
       'imageSRC':imageSRC,
-      'keyword':keyword
+      'keyword':keyword.toLowerCase()
     })
   })
 
