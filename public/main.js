@@ -56,7 +56,8 @@ Array.from(trash).forEach(function(element) {
 
 
 
-///////// DEMO DAY /////////////////
+///////// DEMO DAY /////////////////  ///////// DEMO DAY ///////////////// ///////// DEMO DAY /////////////////
+
 
 let topicChoice = document.getElementById('topicChoice')
 let urlDisplayLink = document.getElementById('urlDisplayLink')
